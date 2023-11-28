@@ -1,8 +1,6 @@
 package com.vinhveer.studentmanagementapi.Controller;
 
 import com.vinhveer.studentmanagementapi.Payload.Request.StudentRequest;
-import com.vinhveer.studentmanagementapi.Repository.PersonalRepository;
-import com.vinhveer.studentmanagementapi.Repository.StudentRepository;
 import com.vinhveer.studentmanagementapi.Service.StudentService;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.http.ResponseEntity;
