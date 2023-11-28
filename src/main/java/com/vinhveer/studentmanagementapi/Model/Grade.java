@@ -17,13 +17,13 @@ public class Grade {
     @GeneratedValue(strategy = GenerationType.IDENTITY)
     private long gradeId;
 
-    @ManyToOne
+    @ManyToOne(cascade = CascadeType.PERSIST)
     @JoinColumn(name = "studentId", referencedColumnName = "studentId",
             foreignKey = @ForeignKey(name = "fk_student_id_grade",
             foreignKeyDefinition = "FOREIGN KEY (student_id) REFERENCES student (student_id) ON DELETE CASCADE ON UPDATE CASCADE"))
     private Student student;
 
-    @ManyToOne
+    @ManyToOne(cascade = CascadeType.PERSIST)
     @JoinColumn(name = "courseId", referencedColumnName = "courseId",
             foreignKey = @ForeignKey(name = "fk_course_id_grade",
                     foreignKeyDefinition = "FOREIGN KEY (course_id) REFERENCES course (course_id) ON DELETE CASCADE ON UPDATE CASCADE"))

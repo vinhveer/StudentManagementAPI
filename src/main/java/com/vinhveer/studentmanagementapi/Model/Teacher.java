@@ -16,7 +16,7 @@ public class Teacher {
     @GeneratedValue(strategy = GenerationType.IDENTITY)
     private long teacherId;
 
-    @OneToOne
+    @OneToOne(cascade = CascadeType.ALL)
     @JoinColumn(name = "personalId", foreignKey = @ForeignKey(name = "fk_personal_id_teacher",
             foreignKeyDefinition = "FOREIGN KEY (personal_id) REFERENCES personal (id) ON DELETE CASCADE ON UPDATE CASCADE"))
     private Personal personal;
