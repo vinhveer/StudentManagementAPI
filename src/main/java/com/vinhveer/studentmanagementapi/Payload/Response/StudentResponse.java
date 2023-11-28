@@ -12,11 +12,11 @@ import java.util.Date;
 public class StudentResponse {
     private long id;
 
-    private String first_name;
+    private String firstName;
 
-    private String last_name;
+    private String lastName;
 
-    private Date date_of_birth;
+    private Date dateOfBirth;
 
     private String address;
 

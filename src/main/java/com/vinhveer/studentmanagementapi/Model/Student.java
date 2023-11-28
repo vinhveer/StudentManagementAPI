@@ -14,10 +14,10 @@ import lombok.NoArgsConstructor;
 public class Student {
     @Id
     @GeneratedValue(strategy = GenerationType.IDENTITY)
-    private long student_id;
+    private long studentId;
 
     @OneToOne
-    @JoinColumn(name = "personal_id", foreignKey = @ForeignKey(name = "fk_personal_id_student",
+    @JoinColumn(name = "personalId", foreignKey = @ForeignKey(name = "fk_personal_id_student",
             foreignKeyDefinition = "FOREIGN KEY (personal_id) REFERENCES personal (id) ON DELETE CASCADE ON UPDATE CASCADE"))
     private Personal personal;
 }

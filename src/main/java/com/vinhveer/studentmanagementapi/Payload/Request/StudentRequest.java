@@ -1,17 +1,24 @@
 package com.vinhveer.studentmanagementapi.Payload.Request;
 
+import lombok.AllArgsConstructor;
+import lombok.Builder;
 import lombok.Data;
+import lombok.NoArgsConstructor;
+
 import java.util.Date;
 
 @Data
+@Builder
+@AllArgsConstructor
+@NoArgsConstructor
 public class StudentRequest {
     private long id;
 
-    private String first_name;
+    private String firstName;
 
-    private String last_name;
+    private String lastName;
 
-    private Date date_of_birth;
+    private Date dateOfBirth;
 
     private String address;
 

@@ -19,13 +19,13 @@ public class Personal {
     private long id;
 
     @Column
-    private String first_name;
+    private String firstName;
 
     @Column
-    private String last_name;
+    private String lastName;
 
     @Column
-    private Date date_of_birth;
+    private Date dateOfBirth;
 
     @Column
     private String address;

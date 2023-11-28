@@ -14,19 +14,19 @@ import lombok.NoArgsConstructor;
 public class Course {
     @Id
     @GeneratedValue(strategy = GenerationType.IDENTITY)
-    private long course_id;
+    private long courseId;
 
     @Column
-    private String course_name;
+    private String courseName;
 
     @ManyToOne
-    @JoinColumn(name = "subject_id", referencedColumnName = "subject_id",
+    @JoinColumn(name = "subjectId", referencedColumnName = "subjectId",
             foreignKey = @ForeignKey(name = "fk_subject_id_course",
                     foreignKeyDefinition = "FOREIGN KEY (subject_id) REFERENCES subject (subject_id) ON DELETE CASCADE ON UPDATE CASCADE"))
     private Subject subject;
 
     @ManyToOne
-    @JoinColumn(name = "teacher_id", referencedColumnName = "teacher_id",
+    @JoinColumn(name = "teacherId", referencedColumnName = "teacherId",
             foreignKey = @ForeignKey(name = "fk_teacher_id_course",
                     foreignKeyDefinition = "FOREIGN KEY (teacher_id) REFERENCES teacher (teacher_id) ON DELETE CASCADE ON UPDATE CASCADE"))
     private Teacher teacher;
