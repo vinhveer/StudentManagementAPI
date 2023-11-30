@@ -19,12 +19,6 @@ public class Course {
     @Column
     private String courseName;
 
-    @Column
-    private long subjectId;
-
-    @Column
-    private long teacherId;
-
     @ManyToOne(cascade = CascadeType.PERSIST)
     @JoinColumn(name = "subjectId", referencedColumnName = "subjectId",
             foreignKey = @ForeignKey(name = "fk_subject_id_course",
