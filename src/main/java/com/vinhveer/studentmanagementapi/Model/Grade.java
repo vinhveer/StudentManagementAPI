@@ -17,6 +17,12 @@ public class Grade {
     @GeneratedValue(strategy = GenerationType.IDENTITY)
     private long gradeId;
 
+    @Column
+    private long studentId;
+
+    @Column
+    private long courseId;
+
     @ManyToOne(cascade = CascadeType.PERSIST)
     @JoinColumn(name = "studentId", referencedColumnName = "studentId",
             foreignKey = @ForeignKey(name = "fk_student_id_grade",

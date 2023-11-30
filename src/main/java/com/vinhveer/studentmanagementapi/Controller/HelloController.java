@@ -5,7 +5,7 @@ import org.springframework.web.bind.annotation.RequestMapping;
 
 @Controller
 @RequestMapping("/")
-public class TestController {
+public class HelloController {
     @RequestMapping("")
     public String test()
     {

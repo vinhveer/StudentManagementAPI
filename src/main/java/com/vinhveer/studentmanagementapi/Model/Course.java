@@ -19,15 +19,21 @@ public class Course {
     @Column
     private String courseName;
 
+    @Column
+    private long subjectId;
+
+    @Column
+    private long teacherId;
+
     @ManyToOne(cascade = CascadeType.PERSIST)
     @JoinColumn(name = "subjectId", referencedColumnName = "subjectId",
             foreignKey = @ForeignKey(name = "fk_subject_id_course",
-                    foreignKeyDefinition = "FOREIGN KEY (subject_id) REFERENCES subject (subject_id) ON DELETE CASCADE ON UPDATE CASCADE"))
+                    foreignKeyDefinition = "FOREIGN KEY (subjectId) REFERENCES subject (subjectId) ON DELETE CASCADE ON UPDATE CASCADE"))
     private Subject subject;
 
     @ManyToOne(cascade = CascadeType.PERSIST)
     @JoinColumn(name = "teacherId", referencedColumnName = "teacherId",
             foreignKey = @ForeignKey(name = "fk_teacher_id_course",
-                    foreignKeyDefinition = "FOREIGN KEY (teacher_id) REFERENCES teacher (teacher_id) ON DELETE CASCADE ON UPDATE CASCADE"))
+                    foreignKeyDefinition = "FOREIGN KEY (teacherId) REFERENCES teacher (teacherId) ON DELETE CASCADE ON UPDATE CASCADE"))
     private Teacher teacher;
 }

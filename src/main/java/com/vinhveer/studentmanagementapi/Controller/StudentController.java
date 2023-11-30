@@ -7,7 +7,7 @@ import org.springframework.http.ResponseEntity;
 import org.springframework.web.bind.annotation.*;
 
 @RestController
-@RequestMapping("/api/student")
+@RequestMapping("/api/v1/student")
 public class StudentController {
     @Autowired
     private StudentService studentService;
@@ -30,7 +30,7 @@ public class StudentController {
         return studentService.GetAllStudent();
     }
 
-    @GetMapping("/get_id/{id}")
+    @GetMapping("/get-id/{id}")
     public ResponseEntity<Object> GetStudentByID(@PathVariable long id)
     {
         return studentService.GetStudentByID(id);
@@ -42,8 +42,8 @@ public class StudentController {
         return studentService.DeleteStudentByID(id);
     }
 
-    @PostMapping("/edit/{id}")
-    public ResponseEntity<Object> EditUserByID(@RequestBody StudentRequest studentRequest, @PathVariable Long id)
+    @PutMapping("/edit/{id}")
+    public ResponseEntity<Object> EditStudentByID(@RequestBody StudentRequest studentRequest, @PathVariable Long id)
     {
         return studentService.EditStudentByID(studentRequest, id);
     }

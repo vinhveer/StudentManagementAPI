@@ -16,7 +16,8 @@ import java.util.List;
 import java.util.Optional;
 
 @Service
-public class StudentServiceImplement implements StudentService {
+public class StudentServiceImplement implements StudentService
+{
     @Autowired
     StudentRepository studentRepository;
 
@@ -51,18 +52,25 @@ public class StudentServiceImplement implements StudentService {
     }
 
     @Override
-    public ResponseEntity<Object> GetStudentByID(long id) {
-        try {
+    public ResponseEntity<Object> GetStudentByID(long id)
+    {
+        try
+        {
             Optional<Student> studentOptional = studentRepository.findById(id);
 
-            if (studentOptional.isPresent()) {
+            if (studentOptional.isPresent())
+            {
                 Student student = studentOptional.get();
                 return ResponseEntity.ok().body(student);
-            } else {
+            }
+            else
+            {
                 return ResponseEntity.status(HttpStatus.NOT_FOUND).body("Student not found with ID: " + id);
             }
 
-        } catch (Exception e) {
+        }
+        catch (Exception e)
+        {
             return ResponseEntity.status(HttpStatus.INTERNAL_SERVER_ERROR)
                     .body("An exception occurred from the server with exception = " + e);
         }
@@ -70,21 +78,28 @@ public class StudentServiceImplement implements StudentService {
 
 
     @Override
-    public ResponseEntity<Object> DeleteStudentByID(long id) {
-        try {
+    public ResponseEntity<Object> DeleteStudentByID(long id)
+    {
+        try
+        {
             studentRepository.deleteById(id);
             return ResponseEntity.ok("Student deleted successfully");
-        } catch (Exception e) {
+        }
+        catch (Exception e)
+        {
             return ResponseEntity.status(HttpStatus.INTERNAL_SERVER_ERROR)
                     .body("An exception occurred from server with exception = " + e);
         }
     }
 
     @Override
-    public ResponseEntity<Object> EditStudentByID(StudentRequest studentRequest, long id) {
-        try {
+    public ResponseEntity<Object> EditStudentByID(StudentRequest studentRequest, long id)
+    {
+        try
+        {
             Optional<Student> existingStudentOptional = studentRepository.findById(id);
-            if (existingStudentOptional.isPresent()) {
+            if (existingStudentOptional.isPresent())
+            {
                 Student existingStudent = existingStudentOptional.get();
 
                 Personal updatedPersonal = existingStudent.getPersonal();
@@ -98,22 +113,31 @@ public class StudentServiceImplement implements StudentService {
                 studentRepository.save(existingStudent);
 
                 return ResponseEntity.ok("Student updated successfully");
-            } else {
+            }
+            else
+            {
                 return ResponseEntity.status(HttpStatus.NOT_FOUND).body("Student not found");
             }
-        } catch (Exception e) {
+        }
+        catch (Exception e)
+        {
             return ResponseEntity.status(HttpStatus.INTERNAL_SERVER_ERROR)
                     .body("An exception occurred from server with exception = " + e);
         }
     }
 
     @Override
-    public ResponseEntity<Object> GetAllStudent() {
-        try {
+    public ResponseEntity<Object> GetAllStudent()
+    {
+        try
+        {
             List<Student> students = studentRepository.findAll();
-            ListDataResponse<Object> listDataResponse = ListDataResponse.builder().message("OK").data(students).build();
+            ListDataResponse<Object> listDataResponse = ListDataResponse.builder()
+                    .message("Query successful.").data(students).build();
             return ResponseEntity.ok(listDataResponse);
-        } catch (Exception e) {
+        }
+        catch (Exception e)
+        {
             return ResponseEntity.status(HttpStatus.INTERNAL_SERVER_ERROR)
                     .body("An exception occurred from server with exception = " + e);
         }
